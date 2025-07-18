@@ -41,8 +41,8 @@ func login(c echo.Context) error {
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Hour * 72)), // 有効期限を72時間に延長
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			NotBefore: jwt.NewNumericDate(time.Now()),
-			Issuer:    "my-auth-server", // 発行者
-			Subject:   "user-login",     // トークンの主題
+			Issuer:    "my-auth-server",                         // 発行者
+			Subject:   "user-login",                             // トークンの主題
 			ID:        fmt.Sprintf("%d", time.Now().UnixNano()), // 一意なID
 			Audience:  jwt.ClaimStrings{"my-app"},               // 想定される受信者
 		},
